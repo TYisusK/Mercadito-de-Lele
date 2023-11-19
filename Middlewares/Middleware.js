@@ -3,7 +3,7 @@ var fs = require("fs");
 
 function subirArchivo(){
     var storage= multer.diskStorage({
-        destination: './web/images',
+        destination: './Web/images',
         filename: (req,file,cb)=>{
             console.log(file.originalname);
             var archivo = Date.now()+file.originalname;
@@ -16,7 +16,7 @@ function subirArchivo(){
 function eliminarArchivo(archivo) {
   return async (req, res, next) => {
     try {
-      fs.unlinkSync(`./web/images/${archivo}`);
+      fs.unlinkSync(`./Web/images/${archivo}`);
       next();
     } catch (err) {
       console.error("Error al eliminar el archivo: " + err);
@@ -29,7 +29,7 @@ function eliminarArchivo(archivo) {
 
 function subirArchivoProd(){
     var storage= multer.diskStorage({
-        destination: './web/imagesProd',
+        destination: './Web/imagesProd',
         filename: (req,file,cb)=>{
             console.log(file.originalname);
             var archivoProd = file.originalname;
@@ -42,7 +42,7 @@ function subirArchivoProd(){
 function eliminarArchivoProd(archivo) {
     return async (req, res, next) => {
       try {
-        fs.unlinkSync(`./web/imagesProd/${archivo}`);
+        fs.unlinkSync(`./Web/imagesProd/${archivo}`);
         next();
       } catch (err) {
         console.error("Error al eliminar el archivo de Producto: " + err);
