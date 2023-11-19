@@ -3,13 +3,15 @@ var path = require("path");
 var cors = require('cors');
 var app = express(); // Utiliza la variable 'app' aquí
 const session = require('express-session');
-
-app.use(session({
-  secret: 'miClaveSecreta', // Clave secreta para firmar la cookie de sesión
-  resave: false,
-  saveUninitialized: false,
-  // Aquí puedes agregar más opciones según tus necesidades
-}));
+const  MemoryStore  =  require ( 'memorystore' ) ( session )
+app.use ( session ( { 
+  cookie : {  maxAge : 86400000  } , 
+  store : new  MemoryStore ( { 
+    checkPeriod : 86400000  // eliminar las entradas caducadas cada 24 h 
+  } ) , 
+  resave : false , 
+  secret : 'keyboard cat' 
+} ) )
 
 var usuariosRutas = require("./Routes/userRoutes");
 var productosRutas = require("./Routes/productRoutes");
