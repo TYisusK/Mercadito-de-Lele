@@ -18,7 +18,7 @@ var productosRutas = require("./Routes/productRoutes");
 var usuariosRutasApi = require("./Routes/userApis");
 var productosRutasApi = require("./Routes/productApis");
 var autenticacionApis = require("./Routes/autenticacionApis");
-app.set('views', path.join(__dirname, 'Views')); // En lugar de app.set('/Views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'Views')); 
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
