@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "el-mercadito-de-lele",
+  "private_key_id": "4d1552158b2ebb07fed8e12b44852548f0dad616",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCUTeV38MFXnVFc\nalFtrYfZaNBX0W5HyB0eIU8iqFqKt5LrsiMeR4iIyppRhy+vGRSqzBCZXbyPaDzG\nR7WcvEf+9gI95ncz0167AvFtS1cqg/SUwPaER/bxdDPfzeA2sggbIwmtdPJZNKNz\n/53CaZAq80/LwXuI9qJQkKByOZI1rr6eK0y7djHU4H2lJNKnWAYJGwlcKaIM3rSy\nrGV3v+Z9pn4gUgGBwHL6OLTuNVBgtednGDjcUDmSi3Vuh9tAGdwA5ylBIfQGb3D3\n6+ZQuCWDC0KJ92SB7Cz84BqIqpUfbq60pw9igPunV7G2Yz/UnvVo3FKuwjOB5dSD\ngpyzCFIXAgMBAAECggEASFBDV9yZKfOXvIxK8EPxPd2R2YBRWccGC68KO0gD/ifN\nCAhwf086EBlabe6RHbwJC889OMswKm0VVUmaELbuFDA4n55E+YxTYLTqq/RUqHJ3\nTCFbEt1UWB/lO3fToFfnA/Rtv5qKoVy9Zs55SlbW6VqCykOpzPsV4lrjIU9ZL7sr\nSahUWMHyzrNG2wvMkvIRN4kKxi+KF2O+bOoKbhw0ykav0gQx82VvYvsBqRWAIyI1\nMRnDp7AOOyWJ6hE19ayBZmVsXsZ99KFOK3iA563ViIVjwnBumDiq8dBllE98JSz1\nQItjgHSy0XyIYlh/L3c74SnUAWVBvXIjSQfOAQwtQQKBgQDDwPpysUgWw7aaI7fN\n/Mmv/WiADebr4kUk2BQEPPwWlP66I4H/G4buHw/V9ZhssYsmKBVVBC82WnCio7rG\ntNXmILiKuOD8SokZ2vl4PUeTyd8YnoVne8WnMUb2JD3ahmo5v2Fh14ed3PRRJsyG\nqpDbAFm9Ucd4neygWj9cf82tTwKBgQDB8nidRohgmPMc6PBesCR+R7rZbAsETGRC\nE+LjMvUCMraeAnv1Q7fYrhYm8P46vi1Io0kXrg6zNiblQLK9ZKHz/nDtpb5RduH9\n7aDoKY9q/sflSF8bLBi35HAI1CdhxCwDB4g7qNZpgE650AW2LzoSpoBtWKzm5byi\ndqgJfnusuQKBgBPQswltHKkBQrizqOV3E0t3UV61CY0TKICkRtJvAe2fQ3HAKmaS\neMQd7NJxu+40wqsoH5CtjcHowcIU5NE8ePKEmWmhcVTYjqxJWDttqJMzOhwZ39Mr\n2kQkXtSHsqMuPA6AavEmihnWxfx4+vceyO8CSBM79f8lrVBGEmfgoAdNAoGANDM1\noWcFd7JS5LoRT/rqp45YzQIWaP7CkUJW872YUhIiMp8Ki/XA+rHIRozgcCEVgRJp\nrtTrIfL2PwfN08nNCSW3cU8FzVlI9BZME5B0CGEwnhZ/eonA0WXLfaTUQK0TB3G0\nihIkO1sMVViW4PUPFUv5DvUp/C9jOPrkuUFwugkCgYB5HGHPURaiIy4NM3Gz+DyH\nMO9fA/DrtBfo3+Vl5BXWIHdHVyQbcOOZTgLRiZ26lW8h6MjORwfoLdYRA8awJRdO\nSFVfP4+I4oXcchqRvAMnq0YERbuwqD9ml8742vxlPRun2SPsDfcNTMOYx1qqvrrf\nNA9lIzN39hbbzKpL5piBqQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-gosdo@el-mercadito-de-lele.iam.gserviceaccount.com",
+  "client_id": "113305355122312902830",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-gosdo%40el-mercadito-de-lele.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

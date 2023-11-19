@@ -1,0 +1,91 @@
+/* Estilos generales */
+body {
+  background-color: #F3E1E3; 
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/* Contenedor de productos */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+/* Tarjeta de producto */
+.product-card {
+  width: 300px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen del producto */
+.product-image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+}
+
+/* Texto de producto */
+h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Botón de agregar al carrito */
+button {
+  background-color: #FF80AB;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #E35482;
+}
+
+
+.owl-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  
+}
+
+.owl-carousel .item img {
+ 
+  height: 300px; /* Cambiar al tamaño deseado */
+
+  border-radius: 5px;
+}

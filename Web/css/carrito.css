@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    background-color: #F3E1E3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para el contenedor principal del carrito */
+  .carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Estilos para cada producto en el carrito */
+  .producto-en-carrito {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+  }
+  
+  .producto-en-carrito img {
+    width: 70px;
+    margin-right: 20px;
+  }
+  
+  .producto-en-carrito form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .producto-en-carrito label {
+    margin-right: 10px;
+  }
+  
+  .producto-en-carrito button {
+    margin-left: 10px;
+  }
+  
+  /* Estilos para la sección del total */
+  .total {
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Estilos para los botones */
+  .total button {
+    background-color: #ff66b2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+  .total button:hover {
+    background-color: #ff3385;
+  }
+  
+  /* Estilos para el enlace de regresar a inicio */
+  .total a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fdfdfd;
+  }
+  
+
+
+  .button-link {
+    background-color: #ff66b2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.button-link:hover {
+    background-color: #ff3385;
+}

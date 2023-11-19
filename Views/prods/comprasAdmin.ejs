@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Vendidos</title>
+    <link rel="stylesheet" href="/Web/css/compras.css"> 
+    <link rel="stylesheet" href="/web/css/header.css">
+</head>
+
+<header class="header">
+<div class="header-container">
+  <div class="logo">
+    <img src="/web/images/logot.png" alt="Logo de Mercadito de Lele">
+    
+    <h1>Mercadito de Lele</h1>
+    
+  </div>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/acerca">Acerca de Nosotros</a></li>
+      <li><a href="/artesanos">Acerca de los Artesanos</a></li>
+      <% if (usuarioAutenticado) { %>
+        <li><a href="/perfil/<%= usuarioAutenticado.id %>">Mi Perfil</a></li>
+        <li><a href="/carrito">Carrito</a></li>
+      <% } else { %>
+        
+      <% } %>          
+      
+      
+    </ul>
+  </nav>
+</div>
+</header>
+
+
+
+<body>
+
+
+    <h1>Productos Vendidos</h1>
+
+    <% if (compras.length > 0) { %>
+        <div class="card">
+            <div class="card-header">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha de la compra</th>
+                            <th>Detalle de la compra</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% compras.forEach(compra => { %>
+                            <tr>
+                                <td rowspan="<%= compra.productos.length > 0 ? compra.productos.length + 1 : 2 %>"><%= compra.fechaCompra %></td>
+                                <% if (compra.productos.length > 0) { %>
+                                    <% compra.productos.forEach(producto => { %>
+                                        <tr>
+                                            <td colspan="2"><%= producto.nombre %></td>
+                                        </tr>
+                                    <% }); %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="2">No hay productos en esta compra.</td>
+                                    </tr>
+                                <% } %>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <% } else { %>
+        <p>No hay compras realizadas.</p>
+    <% } %>
+</body>
+
+<%- include("../templates/pie") %>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Inicio</title>
+  <link rel="stylesheet" href="/Web/css/inicio.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<body>
+  <%- include("../templates/encabezado") %>
+
+  
+  <div class="owl-carousel">
+    <% productos.forEach(producto => { %>
+      <div class="item">
+        <img src="/Web/imagesProd/<%= producto.foto %>" alt="<%= producto.nombre %>">
+      </div>
+    <% }); %>
+  </div>
+
+  <div class="products">
+    <% if (productos.length > 0) { %>
+      <% productos.forEach(producto => { %>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="/Web/imagesProd/<%= producto.foto %>" alt="<%= producto.nombre %>">
+          </div>
+          <h3><%= producto.nombre %></h3>
+          <p><%= producto.descripcion %></p>
+          <p>Precio: <%= producto.precio %></p>
+          
+          <form action="/agregar_al_carrito" method="post">
+            <input type="hidden" name="productoId" value="<%= producto.id %>">
+            <button type="submit">Agregar al Carrito</button> <!-- Cambiar el texto del botón si es necesario -->
+          </form>
+          
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No existen productos.</p>
+    <% } %>
+  </div>
+
+  <%- include("../templates/pie") %>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        autoplay:true,
+        autoplayTimeout:3000, 
+        autoplayHoverPause:true,
+        responsive:{
+          0:{
+            items:1
+          },
+          600:{
+            items:3
+          },
+          1000:{
+            items:5
+          }
+        },
+        autoplaySpeed: 1000,
+        smartSpeed: 1000, 
+        fluidSpeed: 1000, 
+      });
+    });
+  </script>
+</body>
+</html>

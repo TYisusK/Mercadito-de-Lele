@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="/web/css/header.css">
+    <link rel="stylesheet" href="/web/css/perfil.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="/web/images/logot.png" alt="Logo de Mercadito de Lele">
+                <h1>Mercadito de Lele</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/acerca">Acerca de Nosotros</a></li>
+                    <li><a href="/artesanos">Acerca de los Artesanos</a></li>
+                    <% if (usuario && usuario.id === usuarioAutenticado.id) { %>
+                        <li><a href="/perfil/<%= usuario.id %>">Mi Perfil</a></li>
+                    <% } else { %>
+                        <!-- Aquí puedes manejar otros casos si no es el perfil del usuario autenticado -->
+                        <li><a href="/login">Iniciar Sesión</a></li>
+                    <% } %>
+                    <li><a href="/carrito">Carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="profile-container normal-user">
+            <div class="user-image">
+                <img src="/Web/images/<%= usuario.foto %>" alt="Foto de Perfil">
+            </div>
+            <div class="user-info">
+                <h1 class="title"><%= usuario.nombre %></h1>
+                <p class="user-info-item"><strong>ID de Usuario:</strong> <%= usuario.id %></p>
+                <p class="user-info-item"><strong>Usuario:</strong> <%= usuario.usuario %></p>
+                <p class="user-info-item"><strong>Edad:</strong> <%= usuario.edad %></p>
+                <p class="user-info-item"><strong>Correo Electrónico:</strong> <%= usuario.correo %></p>
+                <p class="user-info-item"><strong>Tipo de Usuario:</strong> <%= usuario.tipo %></p>
+            </div>
+            <div class="button">
+                <% if (usuario.tipo === 'normal') { %>
+                    <a href="/editarUser/<%= usuario.id %>" class="button-link">Modificar Perfil</a>
+                <% } else if (usuario.tipo === 'vendedor') { %>
+                    <a href="/editarUser/<%= usuario.id %>" class="button-link">Modificar Perfil</a>
+                    <a href="/nuevoproducto" class="button-link">Subir Producto</a>
+                <% } else if (usuario.tipo === 'admin') { %>
+                    <a href="/mostrarUser" class="button-link">Administrar</a>
+                    <a href="/prodAdmin" class="button-link">Administrar Productos</a>
+                    <a href="/comprasAdmin" class="button-link">Productos Vendidos</a>
+
+                <% } %>
+                <a href="/logout" class="button-link">Cerrar Sesión</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- El resto de tu contenido si lo tienes -->
+
+</body>
+<%-include("../templates/pie") %>
+</html>

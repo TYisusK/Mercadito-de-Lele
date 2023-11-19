@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/Web/css/mostrarpd.css">
+<%- include("../templates/encabezado") %>
+<%- include("../templates/menu") %>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h1>Productos</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Foto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% productos.forEach((producto, index) => { %>
+                            <tr class="<%= index % 2 === 0 ? 'even' : 'odd' %>">
+                                <td><%= producto.id %></td>
+                                <td><%= producto.nombre %></td>
+                                <td>$<%= producto.precio %></td>
+                                <td><img src="/Web/imagesProd/<%= producto.foto %>" alt="Imagen del producto" width="100px"></td>
+                                <td>
+                                    <a href="/editarProducto/<%= producto.id %>" class="btn btn-primary btn-sm">Editar</a>
+                                    <a href="/borrarProducto/<%= producto.id %>" class="btn btn-danger btn-sm">Borrar</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+<%- include("../templates/pie") %>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="/Web/css/carrito.css">
+  <link rel="stylesheet" href="/web/css/header.css">
+</head>
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="/web/images/logot.png" alt="Logo de Mercadito de Lele">
+      
+      <h1>Mercadito de Lele</h1>
+      
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/acerca">Acerca de Nosotros</a></li>
+        <li><a href="/artesanos">Acerca de los Artesanos</a></li>
+        <% if (usuarioAutenticado) { %>
+          <li><a href="/perfil/<%= usuarioAutenticado.id %>">Mi Perfil</a></li>
+          <li><a href="/carrito">Carrito</a></li>
+        <% } else { %>
+          
+        <% } %>          
+        
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body>
+  <div class="carrito">
+    <% productosEnCarrito.forEach(producto => { %>
+      <div class="producto-en-carrito">
+        <img src="/Web/imagesProd/<%= producto.foto %>" alt="<%= producto.nombre %>" width="70px">
+        <h3><%= producto.nombre %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </h3>
+        <p><%= producto.descripcion %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     </p>
+        <p>Precio: <%= producto.precio %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </p>
+
+        <form action="/actualizar_cantidad/<%= producto.id %>" method="post">
+          <label for="cantidad<%= producto.id %>">Cantidad:</label>
+          <input type="number" id="cantidad<%= producto.id %>" name="cantidad" min="1" value="1">
+          <!-- <button type="submit">Actualizar Cantidad</button> -->
+        </form>
+
+        <form action="/eliminar_del_carrito/<%= producto.id %>" method="post">
+          <button type="submit">Eliminar del Carrito</button>
+        </form>
+
+
+      </div>
+    <% }); %>
+  </div>
+
+  <div class="total">
+    <button id="calcularTotal">Calcular Total</button>
+    <p id="total">Total: <span id="totalAmount">0</span></p>
+
+    <form action="/comprar" method="post">
+      <% productosEnCarrito.forEach(producto => { %>
+        <input type="hidden" name="productos[]" value="<%= producto.id %>">
+        <input type="hidden" name="nombres[]" value="<%= producto.nombre %>">
+      <% }); %>
+      <button type="submit">Comprar</button>
+    </form>
+    <button><a href="/">Regresar a Inicio</a></button>
+    
+  </div>
+
+  <script src="/ruta/a/tu/script.js"></script>
+  <script>
+  const calcularTotalButton = document.getElementById('calcularTotal');
+  
+  calcularTotalButton.addEventListener('click', function() {
+    const cantidades = document.querySelectorAll('.producto-en-carrito input[type="number"]');
+    const precios = document.querySelectorAll('.producto-en-carrito p:nth-child(4)');
+    
+    let total = 0;
+    cantidades.forEach((cantidad, index) => {
+      const cantidadValor = parseInt(cantidad.value);
+      const precioValor = parseFloat(precios[index].textContent.split(':')[1].trim());
+      total += cantidadValor * precioValor;
+    });
+
+    const totalAmount = document.getElementById('totalAmount');
+    totalAmount.textContent = total.toFixed(2);
+    
+    const totalElement = document.getElementById('total');
+    totalElement.textContent = 'Total: ';
+    totalElement.appendChild(totalAmount);
+  });
+</script>
+  </script>
+  <%- include("../templates/pie") %>
+</body>
+</html>

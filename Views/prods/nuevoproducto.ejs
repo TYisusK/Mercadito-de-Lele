@@ -1,0 +1,51 @@
+<%- include("../templates/encabezado") %>
+
+<link rel="stylesheet" href="/Web/css/nuevoprod.css">
+<div class="container mt-5">
+    <form action="/nuevoproducto" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h1>Nuevo Producto</h1>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input class="form-control mb-3" type="text" name="nombre" id="nombre" placeholder="Nombre" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input class="form-control mb-3" type="text" name="precio" id="precio" placeholder="Precio">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input class="form-control mb-3" type="text" name="descripcion" id="descripcion" placeholder="Descripción">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoría:</label>
+                    <input class="form-control mb-3" type="text" name="categoria" id="categoria" placeholder="Categoría">
+                </div>
+                <div class="form-group">
+                    <label for="material">Material:</label>
+                    <input class="form-control mb-3" type="text" name="material" id="material" placeholder="Material">
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock:</label>
+                    <input class="form-control mb-3" type="text" name="stock" id="stock" placeholder="Stock">
+                </div>
+                <div class="form-group">
+                    <label for="vendedor">ID del Vendedor:</label>
+                    <input class="form-control mb-3" type="text" name="vendedor" id="vendedor" placeholder="ID del Vendedor">
+                </div>
+                <div class="form-group">
+                    <label for="foto">Selecciona tu foto:</label>
+                    <input class="form-control mb-3" type="file" name="foto" id="foto" accept="image/*">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary mb-3" type="submit">Guardar Producto</button>
+                <button class="btn btn-secondary mb-3" type="reset">Limpiar campos</button>
+            </div>
+        </div>
+    </form>
+</div>
+<%- include("../templates/pie") %>

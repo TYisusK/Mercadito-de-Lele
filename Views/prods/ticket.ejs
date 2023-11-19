@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket de Compra</title>
+  <!-- Agrega tus estilos si es necesario -->
+</head>
+<body>
+  <h1>Ticket de Compra</h1>
+  
+  <h2>Detalles de la compra:</h2>
+  <ul>
+    <% for(let i = 0; i < productos.length; i++) { %>
+      <li>
+        <strong>ID:</strong> <%= productos[i] %> |
+        <strong>Nombre:</strong> <%= nombres[i] %> <!-- Puedes agregar más campos si los enviaste desde la compra -->
+      </li>
+    <% } %>
+  </ul>
+  
+  <!-- Puedes mostrar más detalles o datos de la compra aquí -->
+  
+  <a href="/">Volver al Inicio</a>
+  
+</body>
+</html>

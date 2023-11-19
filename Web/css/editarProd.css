@@ -1,0 +1,46 @@
+/* Estilos para el formulario */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #ffcccc; /* Color rosa pastel */
+    color: #333; /* Color de texto */
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #ffcccc; /* Color rosa pastel para botones */
+    color: #333; /* Color de texto para botones */
+    border: 1px solid #ffcccc; /* Borde con el mismo color */
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    background-color: #ff9999; /* Color rojo pastel para botones */
+    color: #fff; /* Color de texto para botones */
+    border: 1px solid #ff9999; /* Borde con el mismo color */
+}
+
+.btn {
+    border-radius: 5px;
+}

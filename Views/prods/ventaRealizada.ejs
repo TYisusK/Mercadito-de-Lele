@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Web/css/ventR.css">
+    <link rel="stylesheet" href="/web/css/header.css">
+    <title>Compra exitosa</title>
+</head>
+
+<header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="/web/images/logot.png" alt="Logo de Mercadito de Lele">
+        
+        <h1>Mercadito de Lele</h1>
+        
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/acerca">Acerca de Nosotros</a></li>
+          <li><a href="/artesanos">Acerca de los Artesanos</a></li>
+          <% if (usuarioAutenticado) { %>
+            <li><a href="/perfil/<%= usuarioAutenticado.id %>">Mi Perfil</a></li>
+            <li><a href="/carrito">Carrito</a></li>
+          <% } else { %>
+            
+          <% } %>          
+          
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<body>
+    <div class="container">
+        <div class="mensaje">
+            <img src="/Web/WebImages/lele.gif" alt="" width="40%">
+            <h1>Compra realizada con exito</h1>
+            <a href="/" class="boton">Ir al inicio</a>
+        </div>
+    </div>
+</body>
+<%- include("../templates/pie") %>
+</html>

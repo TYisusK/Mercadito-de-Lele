@@ -1,0 +1,94 @@
+/* Estilos generales */
+body {
+    background-color: #F3E1E3; /* Color de fondo principal */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+/*
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;*/
+    
+}
+
+/* Estilos específicos para la sección "Acerca de Nosotros" */
+.acerca-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.acerca-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.acerca-text {
+    flex: 1;
+    text-align: left;
+    margin-right: 40px;
+    color: #333;
+    margin-top: 30px;
+}
+
+.acerca-image {
+    flex: 1;
+    max-width: 300px; /* Ajustado el ancho máximo de la imagen */
+}
+
+.acerca-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efecto de sombra */
+}
+
+/* Estilos para la sección del slider */
+.slider-box {
+    width: 80%;
+    max-width: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.slider-box ul {
+    display: flex;
+    padding: 0;
+    width: 150%; /* Ajustado el ancho */
+    animation: slide 15s infinite linear; /* Ajustada la duración y eliminado 'alternate' */
+}
+
+.slider-box li {
+    flex: 0 0 50%;
+    list-style: none;
+    position: relative;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.slider-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Restringe las reglas de estilo a ciertos elementos en tu menú si tienen clases o IDs únicos */
+.menu h1, .menu p, .menu li {
+    text-align: center;
+    margin: 10px 0;
+    color: #333;
+}
