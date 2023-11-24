@@ -12,9 +12,7 @@
 <div class="header-container">
   <div class="logo">
     <img src="/web/images/logot.png" alt="Logo de Mercadito de Lele">
-    
     <h1>Mercadito de Lele</h1>
-    
   </div>
   <nav class="nav-menu">
     <ul>
@@ -27,18 +25,12 @@
       <% } else { %>
         
       <% } %>          
-      
-      
     </ul>
   </nav>
 </div>
 </header>
 
-
-
 <body>
-
-
     <h1>Productos Vendidos</h1>
 
     <% if (compras.length > 0) { %>
@@ -47,26 +39,28 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>ID Usuario</th>
                             <th>Fecha de la compra</th>
-                            <th>Detalle de la compra</th>
+                            <th>Productos</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <% compras.forEach(compra => { %>
                             <tr>
-                                <td rowspan="<%= compra.productos.length > 0 ? compra.productos.length + 1 : 2 %>"><%= compra.fechaCompra %></td>
-                                <% if (compra.productos.length > 0) { %>
-                                    <% compra.productos.forEach(producto => { %>
-                                        <tr>
-                                            <td colspan="2"><%= producto.nombre %></td>
-                                        </tr>
-                                    <% }); %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="2">No hay productos en esta compra.</td>
-                                    </tr>
-                                <% } %>
+                                <td><%= compra.userId %></td>
+                                <td><%= compra.fechaCompra %></td>
+                                <td>
+                                    <% if (compra.productos.length > 0) { %>
+                                        <ul>
+                                            <% compra.productos.forEach(producto => { %>
+                                                <li><%= producto.nombre %></li>
+                                            <% }); %>
+                                        </ul>
+                                    <% } else { %>
+                                        No hay productos en esta compra.
+                                    <% } %>
+                                </td>
                             </tr>
                         <% }); %>
                     </tbody>
@@ -75,6 +69,11 @@
         </div>
     <% } else { %>
         <p>No hay compras realizadas.</p>
+    <% } %>
+
+    <!-- Mostrar el ID del usuario si está autenticado -->
+    <% if (usuarioAutenticado) { %>
+        <p>ID del usuario: <%= usuarioAutenticado.id %></p>
     <% } %>
 </body>
 
