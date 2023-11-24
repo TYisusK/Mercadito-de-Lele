@@ -46,35 +46,34 @@ ruta.post("/nuevoproducto", subirArchivoProd(), async (req, res) => {
 });
 
 ruta.get("/editarProducto/:id",obtenerUsuarioAutenticado, async (req, res) => {
-    //console.log(req.params.id);
-    var producto = await buscarProductoPorID(req.params.id);
-    res.render("prods/modificar", { producto });
-    //res.end();
+  var producto = await buscarProductoPorID(req.params.id);
+  res.render("prods/modificar", { producto });
 });
 
+
 ruta.post("/editarproducto",subirArchivoProd(), async (req, res) => {
-    req.body.foto = req.file.originalname;
-    var error = await modificarProducto(req.body);
-    res.redirect("/productos");
+  req.body.foto = req.file.originalname;
+  var error = await modificarProducto(req.body);
+  res.redirect("/prodAdmin");
 });
 
 
 ruta.get("/borrarProducto/:id", async (req, res) => {
-    try {
-        var producto = await buscarProductoPorID(req.params.id);
-        if (!producto) {
-          res.status(404).send("Usuario no encontrado.");
-        } else {
-          var archivo = producto.foto;
-          await borrarProducto(req.params.id);
-          eliminarArchivoProd(archivo)(req, res, () => {
-            res.redirect("/productos");
-          });
-        }
-      } catch (err) {
-        console.log("Error al borrar usuario" + err);
-        res.status(400).send("Error al borrar usuario.");
+  try {
+      var producto = await buscarProductoPorID(req.params.id);
+      if (!producto) {
+        res.status(404).send("Usuario no encontrado.");
+      } else {
+        var archivo = producto.foto;
+        await borrarProducto(req.params.id);
+        eliminarArchivoProd(archivo)(req, res, () => {
+          res.redirect("/prodAdmin");
+        });
       }
+    } catch (err) {
+      console.log("Error al borrar usuario" + err);
+      res.status(400).send("Error al borrar usuario.");
+      }
 })
 
 
@@ -156,14 +155,15 @@ ruta.get('/ventaRealizada', async (req, res) => {
 
 ruta.post('/comprar', async (req, res) => {
   try {
-    let productosEnCarrito = obtenerProductosEnCarrito(); 
-    const exito = await guardarNuevaCompra(productosEnCarrito); 
+    const productosEnCarrito = obtenerProductosEnCarrito();
+    const usuarioId = req.session.usuario.id; // Obtener el ID del usuario desde la sesión
+
+    const exito = await guardarNuevaCompra(productosEnCarrito, usuarioId);
+    
     if (exito) {
-      
-      productosEnCarrito = []; 
-      res.redirect('/ventaRealizada'); 
+      productosEnCarrito = [];
+      res.redirect('/ventaRealizada');
     } else {
-      
       res.status(500).send('Error al realizar la compra');
     }
   } catch (error) {
@@ -171,6 +171,7 @@ ruta.post('/comprar', async (req, res) => {
     res.status(500).send('Error al realizar la compra');
   }
 });
+
 
 
 
